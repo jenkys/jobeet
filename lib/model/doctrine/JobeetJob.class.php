@@ -10,7 +10,10 @@
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class JobeetJob extends BaseJobeetJob
-{
+class JobeetJob extends BaseJobeetJob {
+
+    public function __toString() {
+        return sprintf('jenkys %s at %s (%s)', $this->getPosition(), $this->getCompany(), $this->getLocation());
+    }
 
 }
