@@ -12,8 +12,4 @@
  */
 class JobeetCategory extends BaseJobeetCategory {
 
-    public function __toString() {
-        return sprintf('Kategorie - %s', $this->getName());
-    }
-
 }
