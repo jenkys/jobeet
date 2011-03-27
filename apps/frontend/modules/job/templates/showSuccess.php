@@ -1,6 +1,7 @@
-<?php slot('title') ?>
-  <?php echo sprintf('JEN %s is looking for a %s', $job->getCompany(), $job->getPosition()) ?>
-<?php end_slot() ?>
+<?php slot(
+  'title',
+  sprintf('%s is looking for a %s', $job->getCompany(), $job->getPosition()))
+?>
 <?php use_helper('Text') ?>
 
 <div id="job">
