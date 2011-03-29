@@ -1,3 +1,9 @@
+test:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'pgsql:host=localhost;dbname=jobeet_test'
+
 all:
   doctrine:
     class: sfDoctrineDatabase
