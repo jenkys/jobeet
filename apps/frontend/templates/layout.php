@@ -12,15 +12,15 @@
     <div id="container">
       <div id="header">
         <div class="content">
-          <h1><a href="<?php echo url_for('homepage') ?>">
-            <img src="/git/jobeet/web/images/logo.jpg" alt="Jobeet Job Board" />
+          <h1><a href="<?php echo url_for('job') ?>">
+            <img src="<?php echo sfConfig::get('app_web_root_dir') ?>/images/logo.jpg" alt="Jobeet Job Board" />
           </a></h1>
 
           <div id="sub_header">
             <div class="post">
               <h2>Ask for people</h2>
               <div>
-                <a href="<?php echo url_for('job/index') ?>">Post a Job</a>
+                <a href="<?php echo url_for('job_new') ?>">Post a Job</a>
               </div>
             </div>
 

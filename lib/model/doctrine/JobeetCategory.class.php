@@ -10,6 +10,42 @@
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class JobeetCategory extends BaseJobeetCategory {
+class JobeetCategory extends BaseJobeetCategory
+{
+
+    /**
+     *
+     * @param int $max Udava maximalni pocet polozek na stranku, kdyz je 0, tak se zobrazi vsechny.
+     * @return JobeetJob Collection
+     */
+    public function getActiveJobs($max = 10)
+    {
+        $q = $this->getActiveJobsQuery();
+        if (!empty($max))
+        {
+            $q->limit($max);
+        }
+
+        return Doctrine_Core::getTable('JobeetJob')->getActiveJobs($q);
+    }
+
+    public function getSlug()
+    {
+        return Jobeet::slugify($this->getName());
+    }
+
+    public function countActiveJobs()
+    {
+        return $this->getActiveJobsQuery()->count();
+    }
+
+    public function getActiveJobsQuery()
+    {
+        $q = Doctrine_Query::create()
+                        ->from('JobeetJob j')
+                        ->where('j.category_id = ?', $this->getId());
+
+        return Doctrine_Core::getTable('JobeetJob')->addActiveJobsQuery($q);
+    }
 
 }
